@@ -1,0 +1,12 @@
+{
+  "name": "@vivace/notation",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
+  "license": "MIT"
+}

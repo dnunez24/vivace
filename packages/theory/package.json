@@ -1,0 +1,15 @@
+{
+  "name": "@vivace/theory",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "rollup --config ../../rollup.config.ts index.ts",
+    "test": "jest"
+  },
+  "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

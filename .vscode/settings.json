@@ -1,0 +1,11 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.run": "onType",
+  "eslint.codeActionsOnSave.mode": "all",
+  "prettier.enable": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.format.enable": false,
+  "typescript.validate.enable": true
+}

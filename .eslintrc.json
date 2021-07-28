@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["jest"],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:jest/recommended",
+    "plugin:eslint-comments/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "eslint-comments/no-unused-disable": "error"
+  }
+}
