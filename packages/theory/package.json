@@ -7,11 +7,11 @@
     "build": "rm -rf dist && tsc --build tsconfig.json",
     "test": "jest"
   },
-  "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
+  "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^4.3.5"
   }
