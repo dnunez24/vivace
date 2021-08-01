@@ -46,5 +46,5 @@ body:
       description: Are you willing to contribute code for this feature request?
       multiple: false
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
