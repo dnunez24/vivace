@@ -41,9 +41,9 @@ body:
     validations:
       required: false
   - type: dropdown
-    id: contribution
     attributes:
-      label: Are you willing to contribute code for this feature request?
+      label: Contribution
+      description: Are you willing to contribute code for this feature request?
       multiple: false
       options:
         - Yes

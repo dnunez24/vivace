@@ -6,7 +6,6 @@ assignees:
 body:
   - type: dropdown
     attributes:
-      id: package
       label: Package
       description: Which package(s) does this bug relate to?
       multiple: true
@@ -44,7 +43,6 @@ body:
       required: true
   - type: input
     attributes:
-      id: example
       label: Example Repo Link
       description: Link to an example repo where this issue can be reproduced
       placeholder: https://github.com/my-username/my-repo
