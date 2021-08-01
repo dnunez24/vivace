@@ -4,12 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "devDependencies": {
-    "build": "rm -rf ./dist && tsc",
     "jest": "~27.0.6",
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "build": "rollup --config ../../rollup.config.ts index.ts",
+    "build": "rm -rf ./dist && tsc --build tsconfig.json",
     "test": "jest"
   },
   "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",

@@ -15,12 +15,33 @@
   },
   "overrides": [
     {
-      "extends": ["plugin:jest/recommended"],
+      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
       "files": ["**/*.test.ts"],
       "env": {
         "jest/globals": true
       },
-      "plugins": ["jest"]
+      "plugins": ["jest"],
+      "rules": {
+        "jest/consistent-test-it": "error",
+        "jest/lowercase-name": [
+          "error",
+          {
+            "ignore": ["describe", "test"]
+          }
+        ],
+        "jest/max-nested-describe": ["error", { "max": 2 }],
+        "jest/no-duplicate-hooks": "error",
+        "jest/no-hooks": "error",
+        "jest/no-if": "error",
+        "jest/no-test-return-statement": "error",
+        "jest/prefer-called-with": "error",
+        "jest/prefer-spy-on": "error",
+        "jest/prefer-strict-equal": "error",
+        "jest/prefer-todo": "error",
+        "jest/require-to-throw-message": "error",
+        "jest/require-top-level-describe": "error",
+        "jest/unbound-method": "error"
+      }
     }
   ]
 }

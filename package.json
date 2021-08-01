@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "bootstrap": "npm install --workspaces",
     "build": "npm run build -ws",
     "lint": "eslint --ext ts packages",
     "format": "prettier --check .",
@@ -24,9 +25,11 @@
     "@commitlint/cz-commitlint": "^13.1.0",
     "@commitlint/format": "^13.1.0",
     "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^26.0.24",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "babel-jest": "^27.0.6",
+    "babel-plugin-const-enum": "^1.1.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.31.0",
