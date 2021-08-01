@@ -2,14 +2,18 @@
   "name": "@vivace/theory",
   "version": "0.1.0",
   "description": "",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "rollup --config ../../rollup.config.ts index.ts",
+    "build": "rm -rf dist && tsc",
     "test": "jest"
   },
   "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "jest": "~27.0.6",
+    "typescript": "^4.3.5"
   }
 }

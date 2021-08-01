@@ -4,6 +4,7 @@
   },
   "eslint.run": "onType",
   "eslint.codeActionsOnSave.mode": "all",
+  "files.associations": { "*.json": "jsonc" },
   "prettier.enable": true,
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.format.enable": false,
