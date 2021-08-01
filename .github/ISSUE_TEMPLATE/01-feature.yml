@@ -1,0 +1,50 @@
+name: Feature Request
+description: Request a new feature / functionality
+labels: [enhancement]
+assignees:
+  - dnunez24
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the new feature / functionality
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      id: reason
+      label: Reason
+      description: Why is this feature needed?
+      placeholder: |
+        Why is this feature needed?
+        Why does existing functionality not solve your use case? Please provide examples.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      id: benefits
+      label: Benefits
+      description: What are the benefits of the new feature / functionality?
+      placeholder: |
+        Who is this feature for?
+        Why is it useful?
+        How often does the use case occur?
+  - type: textarea
+    attributes:
+      id: implementation
+      label: Suggested Implementation
+      description: What is your suggested implementation for this feature?
+      placeholder: |
+        What needs to be changed?
+        Where should those changes be made?
+        What would your ideal solution look like? Provide a code example or pseudo code if possible, please.
+    validations:
+      required: false
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Are you willing to contribute code for this feature request?
+      multiple: false
+      options:
+        - Yes
+        - No
