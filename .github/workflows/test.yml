@@ -1,0 +1,64 @@
+name: Test pull requests
+on:
+  pull_request:
+    branches:
+      # Only execute this flow when PRs target the trunk
+      - main
+    paths:
+      # Only execute this flow if source code, tests or dependencies change
+      - "./packages/**/*.ts"
+      - "**/package*.json"
+jobs:
+  setup:
+    name: Set up environment
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Setup node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+  install:
+    name: Install dependencies
+    steps:
+      needs: setup
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ github.job }}-
+            ${{ runner.os }}-
+      - name: Install NPM packages
+        run: npm ci
+  lint:
+    name: Lint source code
+    needs: [setup, install]
+    steps:
+      - name: Cache lint results
+        uses: actions/cache@v2
+        with:
+          path: .eslintcache
+          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ env.cache-name }}-
+            ${{ runner.os }}-
+      - name: Run lint rules
+        run: npm run ci:lint
+  test:
+    name: Test source code
+    needs: [setup, install]
+    steps:
+      - name: Cache test results
+        uses: actions/cache@v2
+        with:
+          path: .jestcache
+          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/tests/**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ github.job }}-
+            ${{ runner.os }}-
+      - name: Run tests
+        run: npm run ci:test
