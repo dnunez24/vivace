@@ -5,7 +5,7 @@
     "build": "tsc --build",
     "build:watch": "tsc --build --watch",
     "lint": "eslint --cache --fix --ext ts packages",
-    "test": "lerna run test --stream --no-bail",
+    "test": "jest",
     "test:watch": "jest --watch",
     "ci:lint": "eslint --cache --ext ts packages",
     "ci:test": "jest --bail --changedSince main",

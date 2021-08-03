@@ -1,5 +1,5 @@
 .eslintcache
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 *.log
 coverage
 dist

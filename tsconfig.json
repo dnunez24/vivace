@@ -5,9 +5,9 @@
     "noEmit": true
   },
   "references": [
-    { "path": "packages/audio" },
-    { "path": "packages/notation" },
-    { "path": "packages/operations" },
-    { "path": "packages/theory" }
+    { "path": "packages/audio/tsconfig.build.json" },
+    { "path": "packages/notation/tsconfig.build.json" },
+    { "path": "packages/operations/tsconfig.build.json" },
+    { "path": "packages/theory/tsconfig.build.json" }
   ]
 }
