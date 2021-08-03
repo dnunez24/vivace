@@ -22,8 +22,8 @@ jobs:
           node-version: 14
   install:
     name: Install dependencies
+    needs: setup
     steps:
-      needs: setup
       - name: Cache node modules
         uses: actions/cache@v2
         with:
