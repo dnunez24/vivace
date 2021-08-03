@@ -11,6 +11,7 @@ on:
 jobs:
   setup:
     name: Set up environment
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -22,6 +23,7 @@ jobs:
           node-version: 14
   install:
     name: Install dependencies
+    runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Cache node modules
@@ -36,7 +38,8 @@ jobs:
         run: npm ci
   lint:
     name: Lint source code
-    needs: [setup, install]
+    runs-on: ubuntu-latest
+    needs: install
     steps:
       - name: Cache lint results
         uses: actions/cache@v2
@@ -50,7 +53,8 @@ jobs:
         run: npm run ci:lint
   test:
     name: Test source code
-    needs: [setup, install]
+    runs-on: ubuntu-latest
+    needs: install
     steps:
       - name: Cache test results
         uses: actions/cache@v2
