@@ -34,6 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ github.job }}-
             ${{ runner.os }}-
+      - run: ls -Alp .
       - name: Install NPM packages
         run: npm ci
   lint:
