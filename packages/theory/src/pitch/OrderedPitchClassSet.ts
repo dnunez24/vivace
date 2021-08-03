@@ -1,3 +1,3 @@
 export default class OrderedPitchClassSet {
-  // constructor() {}
+  constructor(readonly value: number) {}
 }
