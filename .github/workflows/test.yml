@@ -6,7 +6,7 @@ on:
       - main
     paths:
       # Only execute this flow if source code, tests or dependencies change
-      - "./packages/**/*.ts"
+      - "packages/**/*.ts"
       - "**/package*.json"
 jobs:
   setup:
