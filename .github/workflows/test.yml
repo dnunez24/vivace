@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: 14
           cache: npm
+      - name: Upgrade to latest npm
+        run: npm install --global npm
       - name: Install NPM packages
         run: npm ci
       - run: ls -Alp .
@@ -53,6 +55,8 @@ jobs:
         with:
           node-version: 14
           cache: npm
+      - name: Upgrade to latest npm
+        run: npm install --global npm
       - name: Install NPM packages
         run: npm ci
       - name: Cache test results
