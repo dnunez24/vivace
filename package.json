@@ -1,4 +1,5 @@
 {
+  "name": "vivace",
   "private": true,
   "scripts": {
     "bootstrap": "npm install --workspaces",
