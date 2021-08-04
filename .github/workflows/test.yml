@@ -24,6 +24,7 @@ jobs:
           cache: npm
       - name: Install NPM packages
         run: npm ci
+      - run: ls -Alp node_modules/@vivace
       - name: Build packages
         run: npm run build
       - name: Cache lint results
@@ -44,6 +45,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      - name: Checkout main branch
+        run: git fetch --no-tags --depth=1 $GITHUB_BASE_REF
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
