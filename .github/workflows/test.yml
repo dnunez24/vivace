@@ -9,8 +9,8 @@ on:
       - "packages/**/*.ts"
       - "**/package*.json"
 jobs:
-  setup:
-    name: Set up environment
+  lint:
+    name: Lint source code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,27 +21,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-  install:
-    name: Install dependencies
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ github.job }}-
-            ${{ runner.os }}-
-      - run: ls -Alp .
+          cache: npm
       - name: Install NPM packages
         run: npm ci
-  lint:
-    name: Lint source code
-    runs-on: ubuntu-latest
-    needs: install
-    steps:
       - name: Cache lint results
         uses: actions/cache@v2
         with:
@@ -55,8 +37,18 @@ jobs:
   test:
     name: Test source code
     runs-on: ubuntu-latest
-    needs: install
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: npm
+      - name: Install NPM packages
+        run: npm ci
       - name: Cache test results
         uses: actions/cache@v2
         with:
