@@ -1,1 +1,3 @@
-export default class Pitch {}
+export default class Pitch {
+  constructor(readonly value: number) {}
+}

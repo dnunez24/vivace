@@ -1,7 +1,10 @@
-import { Pitch, PitchClassSet } from "@vivace/theory";
+import { Pitch } from "@vivace/theory";
 
-type Transposable = Pitch | PitchClassSet;
+type Transposable = Pitch;
 
-export default function transpose(value: Transposable): Transposable {
-  return new Pitch();
+export default function transpose(
+  transposable: Transposable,
+  steps: number
+): Transposable {
+  return new Pitch(transposable.value);
 }
