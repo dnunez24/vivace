@@ -33,7 +33,7 @@ jobs:
           path: .eslintcache
           key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.ts') }}
           restore-keys: |
-            ${{ runner.os }}-${{ env.cache-name }}-
+            ${{ runner.os }}-${{ github.job }}-
             ${{ runner.os }}-
       - name: Run lint rules
         run: npm run ci:lint
@@ -43,10 +43,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Fetch base branch
-        run: git fetch --no-tags --depth=1 origin ${{ github.base_ref }}
-      #   git checkout -b ${{ github.base_ref }}
-      #   git checkout ${{ github.sha }}
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
@@ -60,7 +56,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .jestcache
-          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/tests/**/*.ts') }}
+          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.ts') }}
           restore-keys: |
             ${{ runner.os }}-${{ github.job }}-
             ${{ runner.os }}-
