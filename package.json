@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "ci:changed": "! git diff --quiet ${GITHUB_BASE_REF}...${GITHUB_REF} -- packages/*/{src,package.json}",
     "ci:lint": "eslint --cache --ext ts .",
-    "ci:test": "jest --ci --bail --onlyChanged",
+    "ci:test": "jest --bail --changedSince ${GITHUB_BASE_REF:-main}",
     "prepare": "husky install",
     "release": "lerna publish --yes",
     "changelog": "git log --pretty=format:'%s' main...HEAD",
