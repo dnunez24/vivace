@@ -43,9 +43,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      # - name: Fetch base branch
-      # run: |
-      #   git fetch --no-tags --depth=1 origin ${{ github.base_ref }}
+      - name: Fetch base branch
+        run: git fetch --no-tags --depth=1 origin ${{ github.base_ref }}
       #   git checkout -b ${{ github.base_ref }}
       #   git checkout ${{ github.sha }}
       - name: Setup node.js
