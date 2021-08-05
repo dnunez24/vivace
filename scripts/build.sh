@@ -6,4 +6,4 @@ if [[ "$CI" == "true" ]]; then
   FLAGS="--verbose"
 fi
 
-tsc --build tsconfig.build.json "$FLAGS"
+tsc --build "$@" tsconfig.build.json "$FLAGS"
