@@ -10,7 +10,6 @@ on:
       - "**/package*.json"
 jobs:
   lint:
-    name: Lint source code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,13 +19,8 @@ jobs:
         with:
           node-version: 14
           cache: npm
-      - name: Upgrade to latest npm
-        run: npm install --global npm
-      - name: Install NPM packages
-        run: npm ci
-      - run: ls -Alp node_modules/@vivace
-      - name: Build packages
-        run: npm run build -- --verbose
+      - name: Bootstrap project
+        run: npm run bootstrap
       - name: Cache lint results
         uses: actions/cache@v2
         with:
@@ -36,9 +30,8 @@ jobs:
             ${{ runner.os }}-${{ github.job }}-
             ${{ runner.os }}-
       - name: Run lint rules
-        run: npm run ci:lint
+        run: npm run lint
   test:
-    name: Test source code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -48,10 +41,8 @@ jobs:
         with:
           node-version: 14
           cache: npm
-      - name: Upgrade to latest npm
-        run: npm install --global npm
-      - name: Install NPM packages
-        run: npm ci
+      - name: Bootstrap project
+        run: npm run bootstrap
       - name: Cache test results
         uses: actions/cache@v2
         with:
@@ -61,4 +52,4 @@ jobs:
             ${{ runner.os }}-${{ github.job }}-
             ${{ runner.os }}-
       - name: Run tests
-        run: npm run ci:test
+        run: npm test
