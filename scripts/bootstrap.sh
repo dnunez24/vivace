@@ -2,7 +2,6 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALL_CMD="install"
-INSTALL_FLAGS="--workspaces"
 
 if [[ "$CI" == "true" ]]; then
   INSTALL_CMD="ci"
@@ -14,7 +13,7 @@ npm install --global npm
 
 echo
 echo "Installing npm packages..."
-npm "$INSTALL_CMD" "$INSTALL_FLAGS"
+npm "$INSTALL_CMD"
 
 echo
 echo "Building project..."
