@@ -14,7 +14,7 @@ npm install --global npm
 
 echo
 echo "Installing npm packages..."
-npm "$INSTALL_CMD" "$WORKSPACES"
+npm "$INSTALL_CMD" "$INSTALL_FLAGS"
 
 echo
 echo "Building project..."
