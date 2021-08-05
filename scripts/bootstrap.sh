@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALL_CMD="install"
-INSTALL_FLAGS="--workspaces --no-fund --no-audit"
+INSTALL_FLAGS="--workspaces"
 
 if [[ "$CI" == "true" ]]; then
   CMD="ci"

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-FLAGS="--build"
+FLAGS=""
 
 if [[ "$CI" == "true" ]]; then
-  FLAGS="$FLAGS --verbose"
+  FLAGS="--verbose"
 fi
 
-tsc "$FLAGS" "$@" tsconfig.build.json
+tsc --build tsconfig.build.json "$FLAGS"
