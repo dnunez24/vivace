@@ -3,7 +3,7 @@
 FLAGS=""
 
 if [[ "$CI" == "true" ]]; then
-  FLAGS="$FLAGS --bail"
+  FLAGS="--bail"
 fi
 
 jest "$FLAGS" "$@"
