@@ -24,10 +24,9 @@ jobs:
         run: npm install --global npm
       - name: Install NPM packages
         run: npm ci
-      - run: ls -Alp .
-      - run: ls -Alp node_modules
+      - run: ls -Alp node_modules/@vivace
       - name: Build packages
-        run: npm run build
+        run: npm run build -- --verbose
       - name: Cache lint results
         uses: actions/cache@v2
         with:
@@ -44,8 +43,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Checkout main branch
-        run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF
+      # - name: Checkout main branch
+      #   run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
