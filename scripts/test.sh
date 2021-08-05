@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-FLAGS=""
+FLAGS="--color"
 
 if [[ "$CI" == "true" ]]; then
-  FLAGS="--bail"
+  FLAGS="$FLAGS --bail"
 fi
 
-jest "$FLAGS" "$@"
+jest $FLAGS $@
