@@ -6,5 +6,6 @@ export default function transpose(
   transposable: Transposable,
   steps: number
 ): Transposable {
-  return new Pitch((transposable.value + steps) % 12);
+  if (steps === 0) return transposable;
+  return new Pitch((12 + (transposable.value + steps)) % 12);
 }
