@@ -1,20 +1,18 @@
 {
+  "name": "vivace",
   "private": true,
   "scripts": {
-    "bootstrap": "npm install --workspaces",
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch",
-    "lint": "eslint --cache --fix --ext ts packages",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "bootstrap": "./scripts/bootstrap.sh",
+    "build": "./scripts/build.sh",
+    "lint": "./scripts/lint.sh",
+    "test": "./scripts/test.sh",
+    "tdd": "./scripts/test.sh --watch",
     "ci:changed": "! git diff --quiet ${GITHUB_BASE_REF}...${GITHUB_REF} -- packages/*/{src,package.json}",
-    "ci:lint": "eslint --cache --ext ts packages",
-    "ci:test": "jest --bail --changedSince main",
     "prepare": "husky install",
     "release": "lerna publish --yes",
     "changelog": "git log --pretty=format:'%s' main...HEAD",
     "version": "lerna version --conventional-commits",
-    "watch": "npm run watch --workspaces"
+    "watch": "./scripts/build.sh --watch"
   },
   "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
   "license": "MIT",
