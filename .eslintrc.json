@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["coverage", "dist", "node_modules"],
+  "ignorePatterns": ["coverage", "lib", "node_modules"],
   "parserOptions": {
     "project": "tsconfig.json"
   },

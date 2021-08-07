@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
 
-FLAGS=""
+FLAGS=("--pretty")
 
 if [[ "$CI" == "true" ]]; then
-  FLAGS="--verbose"
+  FLAGS+=("--verbose")
 fi
 
-tsc --build "$@" tsconfig.build.json "$FLAGS"
+while [[ $# -gt 0 ]]; do
+  arg="$1"
+
+  case $arg in
+    -w|--watch)
+      FLAGS+=("--watch")
+      shift
+      ;;
+    *)
+      POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
+done
+
+tsc --build tsconfig.build.json ${FLAGS[@]}

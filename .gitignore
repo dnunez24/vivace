@@ -3,5 +3,5 @@
 *.tsbuildinfo
 *.log
 coverage
-dist
+lib
 node_modules

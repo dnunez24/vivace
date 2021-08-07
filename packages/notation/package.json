@@ -1,26 +1,34 @@
 {
   "name": "@vivace/notation",
   "version": "0.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "A library for creating musical notation",
+  "keywords": [
+    "music",
+    "notation"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts",
-    "dist/**/*.map"
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.map"
   ],
   "devDependencies": {
     "jest": "~27.0.6",
     "typescript": "^4.3.5"
   },
-  "scripts": {
-    "build": "rm -rf ./dist && tsc --build tsconfig.json",
-    "test": "jest",
-    "release": "standard-version --dry-run"
-  },
   "publishConfig": {
     "access": "public"
   },
   "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/dnunez24/vivace/blob/main/packages/notation/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dnunez24/vivace.git",
+    "directory": "packages/notation"
+  },
+  "bugs": {
+    "url": "https://github.com/dnunez24/vivace/issues"
+  }
 }
