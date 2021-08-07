@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 
 if [[ "$CI" != "true" ]]; then
-  echo "Release can only be run in CI environment"
+  echo "$0 can only be run in CI environment"
   exit 1
 fi
 
-RELEASE_FLAGS=""
+PUBLISH_FLAGS=("--workspaces")
+POSITIONAL=()
 
-if [[ ! -z "$@" ]]; then
-  RELEASE_FLAGS="-- $@"
-fi
+while [[ $# -gt 0 ]]; do
+  arg="$1"
 
-npm run release --workspaces $RELEASE_FLAGS
+  case $arg in
+    -d|--dry-run)
+      PUBLISH_FLAGS+=("--dry-run")
+      shift
+      ;;
+    *)
+      POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
+done
 
-git push --follow-tags origin $GITHUB_HEAD_REF
-
-npm publish --workspaces --dry-run
+npm publish ${PUBLISH_FLAGS[@]}
