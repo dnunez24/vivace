@@ -40,4 +40,6 @@ standard-version ${VERSION_FLAGS[@]}
 echo
 echo "Pushing version tags to origin..."
 echo
+git config user.email "actions@github.com"
+git config user.name "GitHub Actions"
 git push ${PUSH_FLAGS[@]} origin ${GITHUB_REF:-"main"}
