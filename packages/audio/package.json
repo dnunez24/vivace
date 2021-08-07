@@ -1,11 +1,13 @@
 {
   "name": "@vivace/audio",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.map"
   ],
   "devDependencies": {
     "jest": "~27.0.6",
@@ -13,7 +15,8 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && tsc --build tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version --dry-run"
   },
   "publishConfig": {
     "access": "public"

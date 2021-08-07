@@ -1,15 +1,18 @@
 {
   "name": "@vivace/operations",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.map"
   ],
   "scripts": {
     "build": "rm -rf ./dist && tsc --build tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version --dry-run"
   },
   "publishConfig": {
     "access": "public"
@@ -17,7 +20,7 @@
   "author": "David Nuñez <david.nunez@alumni.stanford.edu> (https://davidanunez.com/)",
   "license": "MIT",
   "dependencies": {
-    "@vivace/theory": "^0.1.0"
+    "@vivace/core": "^0.0.0"
   },
   "devDependencies": {
     "jest": "~27.0.6",

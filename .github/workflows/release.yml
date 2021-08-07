@@ -1,0 +1,48 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/*/src/**"
+      - "packages/*/package.json"
+jobs:
+  publish-npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+      - name: Bootstrap project
+        run: npm run bootstrap
+      - name: Publish to npm
+        run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+  publish-gpr:
+    name: Publish to GitHub Package Registry
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: $registry-url(npm)
+          cache: npm
+      - name: Bootstrap project
+        run: npm run bootstrap
+      - name: Publish to npm
+        run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

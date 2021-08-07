@@ -1,17 +1,20 @@
 {
-  "name": "@vivace/theory",
-  "version": "0.1.0",
+  "name": "@vivace/core",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.map"
   ],
   "scripts": {
     "build": "rm -rf dist && tsc --build tsconfig.json",
     "lint": "eslint . --ext ts",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "release": "standard-version --dry-run"
   },
   "publishConfig": {
     "access": "public"
