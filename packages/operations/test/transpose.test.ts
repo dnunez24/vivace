@@ -1,4 +1,4 @@
-import { Pitch } from "@vivace/theory";
+import { Pitch } from "@vivace/core";
 import { transpose } from "../src";
 
 describe("transpose", () => {

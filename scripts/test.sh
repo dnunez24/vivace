@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-FLAGS="--color"
+FLAGS=("--color")
 
 if [[ "$CI" == "true" ]]; then
-  FLAGS="$FLAGS --bail"
+  FLAGS+=("--bail")
 fi
 
-jest $FLAGS $@
+# Pass script args through to jest
+FLAGS+=("$@")
+
+jest ${FLAGS[@]}

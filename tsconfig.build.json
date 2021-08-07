@@ -3,7 +3,7 @@
   "files": [],
   "include": [],
   "references": [
-    { "path": "packages/theory/tsconfig.build.json" },
+    { "path": "packages/core/tsconfig.build.json" },
     { "path": "packages/audio/tsconfig.build.json" },
     { "path": "packages/notation/tsconfig.build.json" },
     { "path": "packages/operations/tsconfig.build.json" }

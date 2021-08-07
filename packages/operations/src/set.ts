@@ -1,4 +1,4 @@
-// import { PitchClassSet } from "@vivace/theory";
+// import { PitchClassSet } from "@vivace/core";
 
 // export function transpose(pcs: PitchClassSet): PitchClassSet {
 //   //

@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-FLAGS="--cache --ext ts"
+FLAGS=("--cache" "--ext" "ts")
 
 if [[ "$CI" != "true" ]]; then
-  FLAGS="$FLAGS --fix"
+  FLAGS+=("--fix")
 fi
 
-eslint "$FLAGS" "$@" .
+# Pass all script args through to eslint
+FLAGS+=("$@")
+
+eslint ${FLAGS[@]} .
+
