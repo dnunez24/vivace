@@ -6,6 +6,7 @@
     "build": "./scripts/build.sh",
     "prelint": "npm run build",
     "lint": "./scripts/lint.sh",
+    "pretest": "npm run build",
     "test": "./scripts/test.sh",
     "tdd": "./scripts/test.sh --watch",
     "prepare": "husky install",
