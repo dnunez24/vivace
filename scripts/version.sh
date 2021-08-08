@@ -34,8 +34,10 @@ if [[ ! -f "$CHANGELOG_PATH" ]]; then
   VERSION_FLAGS+=("--first-release")
 fi
 
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git config user.name "$GITHUB_ACTOR"
+if [[ ! -z "$GITHUB_ACTOR" ]]; then
+  git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+  git config user.name "$GITHUB_ACTOR"
+fi
 
 echo "Bumping package versions..."
 echo
