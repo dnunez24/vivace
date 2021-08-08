@@ -9,7 +9,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$(cd $SCRIPT_DIR/..; pwd)"
 CHANGELOG_PATH="${PROJECT_ROOT}/CHANGELOG.md"
 VERSION_FLAGS=()
-PUSH_FLAGS=("--follow-tags")
+PUSH_FLAGS=("--follow-tags" "--verbose")
 POSITIONAL=()
 
 while [[ $# -gt 0 ]]; do
@@ -34,16 +34,18 @@ if [[ ! -f "$CHANGELOG_PATH" ]]; then
   VERSION_FLAGS+=("--first-release")
 fi
 
-git config --global user.email "actions@users.noreply.github.com"
-git config --global user.name "GitHub Actions"
+git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config user.name "$GITHUB_ACTOR"
 
 echo "Bumping package versions..."
 echo
 
+# git checkout ${GITHUB_REF:-"main"}
 standard-version ${VERSION_FLAGS[@]}
 
 echo
 echo "Pushing version tags to origin..."
 echo
 
+echo "GITHUB_REF: $GITHUB_REF"
 git push ${PUSH_FLAGS[@]} origin ${GITHUB_REF:-"main"}

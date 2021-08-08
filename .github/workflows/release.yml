@@ -7,24 +7,9 @@ on:
       - "packages/*/src/**"
       - "packages/*/package.json"
 jobs:
-  version:
+  release:
+    name: Version and publish packages
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Set up node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          cache: npm
-      - name: Bootstrap project
-        run: npm run bootstrap
-      - name: Bump version
-        run: npm run version
-  publish-npm:
-    name: Publish to NPM registry
-    runs-on: ubuntu-latest
-    needs: version
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -36,29 +21,9 @@ jobs:
           cache: npm
       - name: Bootstrap project
         run: npm run bootstrap
+      - name: Bump version
+        run: npm run version
       - name: Publish to npm
         run: npm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  publish-gpr:
-    name: Publish to GitHub registry
-    runs-on: ubuntu-latest
-    needs: version
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Set up node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: https://npm.pkg.github.com/
-          cache: npm
-      - name: Bootstrap project
-        run: npm run bootstrap
-      - name: Publish to npm
-        run: npm run release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
