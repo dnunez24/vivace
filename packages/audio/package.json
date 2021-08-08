@@ -1,6 +1,6 @@
 {
   "name": "@vivace/audio",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A library to simplify creating musical applications with web audio",
   "keywords": [
     "audio",

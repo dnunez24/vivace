@@ -1,6 +1,6 @@
 {
   "name": "@vivace/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Foundational library for building musical applications with Javascript or Typescript",
   "keywords": [
     "music",
